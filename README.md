@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚖 FemRide: Secure Women-Only Ride-Sharing System
 
-## Getting Started
+### 🔒 Safe, Reliable, and Women-Exclusive Travel
 
-First, run the development server:
+## 📌 Overview
+FemRide is a women-only ride-sharing platform ensuring **safety, security, and comfort** for female passengers. The app offers **female drivers, panic buttons, location tracking, and ride authentication**, making travel secure and hassle-free.
 
+---
+
+## 🚀 Features
+### ✅ Easy Features
+- 👩‍💼 **Women-Only Authentication** (Signup/Login with OTP)
+- 🚗 **Choose Ride Type** (Bike, Scooty, Auto, Car - Sedan, XL, Priority)
+- 📍 **Real-Time Location Sharing**
+- 🛡️ **Safety Precautions & Tips**
+- 💳 **Multiple Payment Methods**
+- ⭐ **Rating & Review System**
+- 💰 **Discounts & Special Offers**
+
+---
+
+## 🛠 Tech Stack
+### **Frontend**
+- **Next.js** – Fast & SEO-friendly UI
+- **TypeScript** – Type safety
+- **Tailwind CSS** – Clean & modern design
+
+### **Backend**
+- **Next.js API Routes** – Server-side logic
+- **Node.js & Express** – API handling
+- **PostgreSQL** – Secure data storage
+- **Prisma ORM** – Database management
+- **Redis** – Session management
+
+### **Authentication & Security**
+- **JWT & OTP-Based Login**
+- **Nodemailer** – Email verification
+- **bcrypt.js** – Password encryption
+
+### **Other Integrations**
+- **Mapbox / Google Maps API** – Live ride tracking
+- **Twilio / Vonage** – SMS alerts & call support
+
+
+---
+
+## 📲 How to Run Locally
+### 🔧 Prerequisites
+- Node.js v18+
+- PostgreSQL installed & configured
+- Mapbox/Google Maps API key
+
+### ⚙️ Installation
 ```bash
+# Clone the repo
+git clone https://github.com/yourusername/femride.git
+cd femride
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env  # Add API keys & DB credentials
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🏗 Build & Deploy
+```bash
+npm run build
+npm start
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📜 License
+This project is **open-source** under the MIT License.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Contributing
+We welcome contributions! Feel free to submit issues and PRs.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
