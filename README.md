@@ -28,9 +28,7 @@ FemRide is a women-only ride-sharing platform ensuring **safety, security, and c
 ### **Backend**
 - **Next.js API Routes** – Server-side logic
 - **Node.js & Express** – API handling
-- **PostgreSQL** – Secure data storage
-- **Prisma ORM** – Database management
-- **Redis** – Session management
+
 
 ### **Authentication & Security**
 - **JWT & OTP-Based Login**
