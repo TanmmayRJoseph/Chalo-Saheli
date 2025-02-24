@@ -1,7 +1,7 @@
 import Ride from "@/models/ride";
 import { getDistanceTime } from "./mapsServices";
 import { connectToDatabase } from "@/config/db";
-// import crypto from "crypto"; // Fixed missing import
+import crypto from "crypto"; // Fixed missing import
 
 interface DistanceTime {
   distance: number;
@@ -63,14 +63,51 @@ async function getFare(pickupLocation: string, dropLocation: string) {
   return fare;
 }
 
-// function getOtp(num: number) {
-//   function generateOtp(num: number) {
-//     return crypto
-//       .randomInt(Math.pow(10, num - 1), Math.pow(10, num))
-//       .toString();
-//   }
-//   return generateOtp(num);
+function getOtp(num: number) {
+  function generateOtp(num: number) {
+    return crypto
+      .randomInt(Math.pow(10, num - 1), Math.pow(10, num))
+      .toString();
+  }
+  return generateOtp(num);
+}
+
+// interface RideParams {
+//   passenger: string;
+//   pickupLocation: string;
+//   dropLocation: string;
+//   vehicleType: "auto" | "car" | "motorcycle";
+//   otp: string;
 // }
+
+// export async function createRides({
+//   passenger,
+//   pickupLocation,
+//   dropLocation,
+//   vehicleType,
+  
+// }: RideParams) {
+//   await connectToDatabase(); // Ensure DB is connected before inserting
+//   if (!passenger || !pickupLocation || !dropLocation || !vehicleType) {
+//     throw new Error("All fields are required");
+//   }
+
+//   // Get fare before creating the ride
+//   const fare = await getFare(pickupLocation, dropLocation);
+
+//   console.log(fare);
+//   const ride = await Ride.create({
+//     passenger,
+//     pickupLocation,
+//     dropLocation,
+//     otp: getOtp(6),
+//     vehicleType,
+//     fare: fare[vehicleType], // Use calculated fare
+//   });
+
+//   return ride;
+// }
+
 
 interface RideParams {
   passenger: string;
@@ -83,9 +120,10 @@ export async function createRides({
   passenger,
   pickupLocation,
   dropLocation,
-  vehicleType,
+  vehicleType
 }: RideParams) {
   await connectToDatabase(); // Ensure DB is connected before inserting
+
   if (!passenger || !pickupLocation || !dropLocation || !vehicleType) {
     throw new Error("All fields are required");
   }
@@ -93,11 +131,17 @@ export async function createRides({
   // Get fare before creating the ride
   const fare = await getFare(pickupLocation, dropLocation);
 
-  console.log(fare);
+  if (!fare || fare[vehicleType] === undefined) {
+    throw new Error("Failed to calculate fare. Please check the input locations.");
+  }
+
+  console.log("Fare calculated:", fare);
+
   const ride = await Ride.create({
     passenger,
     pickupLocation,
     dropLocation,
+    otp: getOtp(6), // Generate OTP internally
     vehicleType,
     fare: fare[vehicleType], // Use calculated fare
   });

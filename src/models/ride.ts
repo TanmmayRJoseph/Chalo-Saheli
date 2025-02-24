@@ -10,6 +10,7 @@ interface IRide {
   distance: number;
   paymentID: string;
   orderID: string;
+  otp:string;
   fare: number;
   createdAt?: Date;
   updatedAt?: Date;
@@ -30,6 +31,7 @@ const RideSchema = new Schema<IRide>(
     distance: { type: Number },//in meters
     paymentID: { type: String },
     orderID: { type: String },
+    otp:{type:String,select:false,required:true},
     fare: { type: Number, required: true },
   },
   { timestamps: true }
