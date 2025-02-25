@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +15,7 @@ export default function MainPage() {
                     className="scale-x-[-1] ml-32"
                 />
                 <h3 className="text-2xl font-bold text-pink-600 text-center max-w-2xl">
-                    Ride with Confidence, Travel with Care - <br /> Where Women's Safety
+                    Ride with Confidence, Travel with Care - <br /> Where Women&#39s Safety
                     Comes First
                 </h3>
                 <Image

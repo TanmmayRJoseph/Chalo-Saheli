@@ -72,43 +72,6 @@ function getOtp(num: number) {
   return generateOtp(num);
 }
 
-// interface RideParams {
-//   passenger: string;
-//   pickupLocation: string;
-//   dropLocation: string;
-//   vehicleType: "auto" | "car" | "motorcycle";
-//   otp: string;
-// }
-
-// export async function createRides({
-//   passenger,
-//   pickupLocation,
-//   dropLocation,
-//   vehicleType,
-  
-// }: RideParams) {
-//   await connectToDatabase(); // Ensure DB is connected before inserting
-//   if (!passenger || !pickupLocation || !dropLocation || !vehicleType) {
-//     throw new Error("All fields are required");
-//   }
-
-//   // Get fare before creating the ride
-//   const fare = await getFare(pickupLocation, dropLocation);
-
-//   console.log(fare);
-//   const ride = await Ride.create({
-//     passenger,
-//     pickupLocation,
-//     dropLocation,
-//     otp: getOtp(6),
-//     vehicleType,
-//     fare: fare[vehicleType], // Use calculated fare
-//   });
-
-//   return ride;
-// }
-
-
 interface RideParams {
   passenger: string;
   pickupLocation: string;

@@ -1,6 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { connectToDatabase } from "@/config/db";
 import Saheli from "@/models/saheli";
+import bcrypt from "bcrypt";
 
 //register route for registering the new user to the app
 
@@ -51,6 +52,7 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
+    const hashedPassword=await bcrypt.hash(password,10);
     const newUser = new Saheli({
       name,
       phoneNo,
@@ -59,7 +61,7 @@ export async function POST(req: NextRequest) {
       dob,
       emailId,
       address,
-      password,
+      password:hashedPassword,
     });
     await newUser.save();
     return NextResponse.json(
